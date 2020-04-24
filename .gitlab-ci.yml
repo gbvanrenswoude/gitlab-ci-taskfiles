@@ -1,0 +1,12 @@
+.gettaskfiles: &gettaskfiles
+- echo 'getting task files and making them available under the folder tasks'
+- BASE_URL=`echo $CI_REPOSITORY_URL | sed "s;\/*$CI_PROJECT_PATH.*;;"`
+- TASK_FILE_REPO_URL="$BASE_URL/yourtasklibrepo.git"
+- rm -fr tasks
+- git clone $TASK_FILE_REPO_URL tasks
+
+sumjob:
+  stage: deploy
+  script:
+    - *gettaskfiles
+    - ./tasks/tasks/your/task.sh
