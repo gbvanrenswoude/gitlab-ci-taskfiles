@@ -4,6 +4,7 @@
 - TASK_FILE_REPO_URL="$BASE_URL/yourtasklibrepo.git"
 - rm -fr tasks
 - git clone $TASK_FILE_REPO_URL tasks
+- chmod -R 755 tasks
 
 sumjob:
   stage: deploy
